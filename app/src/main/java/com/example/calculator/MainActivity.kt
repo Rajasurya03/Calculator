@@ -37,17 +37,21 @@ class MainActivity : AppCompatActivity() {
                     tvOperation.append(view.text)
                 canAddDecimal=false
             }
-            else
+            else {
                 tvOperation.append(view.text)
+                canAddDecimal=true
+            }
         }
         tvResult.text=calculateResults()
         canAddOperator=true
     }
     fun operationAction(view: View){
         if(view is Button && (canAddOperator || (view.text=="-" && tvOperation.length()==0))){
+            if(view.text=="-" && tvOperation.length()==0)
+                tvOperation.append("0")
             tvOperation.append(view.text)
             canAddOperator=false
-            canAddDecimal=true
+            canAddDecimal=false
             tvResult.text=calculateResults()
         }
     }
@@ -70,6 +74,8 @@ class MainActivity : AppCompatActivity() {
     fun equalToAction(view: View){
         tvOperation.text = calculateResults()
         tvResult.text = ""
+        canAddOperator = true
+        canAddDecimal = false
     }
 
     private fun calculateResults(): String {
@@ -91,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                 val nextDigit =passedList[i+1] as Float
                 if(operator=='+')
                     result+=nextDigit
-                if (operator=='—')
+                if (operator=='-')
                     result-=nextDigit
             }
         }
@@ -100,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun timeDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
         var list = passedList
-        while(list.contains('✕')||list.contains('÷')){
+        while(list.contains('x')||list.contains('÷')){
             list=calcTimesDiv(list)
         }
         return list
@@ -115,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                 val prevDigit = passedList[i-1] as Float
                 val nextDigit = passedList[i+1] as Float
                 when(operator){
-                    '✕' ->{
+                    'x' ->{
                         newList.add(prevDigit*nextDigit)
                         restartIndex = i+1
                     }
