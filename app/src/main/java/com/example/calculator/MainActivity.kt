@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun numberAction(view: View){
         if(view is Button) {
-            if(view.text=="."){
+            if(view.text === "."){
                 if(canAddDecimal)
                     tvOperation.append(view.text)
                 canAddDecimal=false
@@ -83,8 +83,8 @@ class MainActivity : AppCompatActivity() {
         if (digitsOperators.isEmpty())
             return ""
         val timeDivision=timeDivisionCalculate(digitsOperators)
-            if (timeDivision.isEmpty())
-                return ""
+        if (timeDivision.isEmpty())
+            return ""
         val result=addSubtractCalculate(timeDivision)
         return result.toString()
     }

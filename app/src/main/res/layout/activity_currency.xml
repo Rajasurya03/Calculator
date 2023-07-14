@@ -5,32 +5,154 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".CurrencyActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="450dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="123"
-        android:inputType="number"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/tvTitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="US Dollar USD"
-            android:inputType="number"
-            android:text="12345"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="35dp"
+            android:paddingLeft="15dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="India Rupee (INR)" />
 
+        <TextView
+            android:id="@+id/tvCurrency1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="1"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            android:layout_gravity="center"
+            android:gravity="start" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/tvTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="15dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="US Dollar (USD)" />
+
+        <TextView
+            android:id="@+id/tvCurrency2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="0.0122"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:textSize="35dp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="7"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="8"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="9"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:background="@drawable/roundedbuttonorange"
+            android:onClick="clearAction"
+            android:text="C"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/buttonRow">
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="4"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="5"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="6"></Button>
+
+        <Button
+            style="@style/buttonNumber"
+            android:background="@drawable/roundedbuttonorange"
+            android:onClick="backSpaceAction"
+            android:text="⌫"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/buttonRow">
+
+        <Button style="@style/buttonNumber"
+            android:text="1">
+        </Button>
+
+        <Button style="@style/buttonNumber"
+            android:text="2">
+        </Button>
+
+        <Button style="@style/buttonNumber"
+            android:text="3">
+        </Button>
+
+        <Button
+            style="@style/buttonNull"
+            android:textColor="@color/black">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/buttonRow">
+
+        <Button style="@style/buttonNumber"
+            android:text="00">
+        </Button>
+
+        <Button style="@style/buttonNumber"
+            android:text="0">
+        </Button>
+
+        <Button style="@style/buttonNumber"
+            android:text=".">
+        </Button>
+
+        <Button style="@style/buttonNull"
+            android:textColor="@color/black">
+        </Button>
+
+    </LinearLayout>
 </LinearLayout>

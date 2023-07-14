@@ -10,13 +10,9 @@ class ConverterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_converter)
-    }
-    fun Converter (view: View){
-        if(view is Button){
-            val bntCurrency=findViewById<Button>(R.id.bntCurrency)
-            bntCurrency.setOnClickListener {
-                intent= Intent(this, CurrencyActivity::class.java)
-            }
+        val bntCurrency=findViewById<Button>(R.id.bntCurrency)
+        bntCurrency.setOnClickListener {
+            intent= Intent(this, CurrencyActivity::class.java)
             startActivity(intent)
         }
     }
